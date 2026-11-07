@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laleen Butik | Erzurum Taşmağazaları Giyim Mağazası</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            50: '#FDFBF7',
+                            100: '#F9F5EA',
+                            300: '#E5D08F',
+                            500: '#D4AF37',
+                            600: '#C59B27',
+                            700: '#A37E1C',
+                        },
+                        amberGold: {
+                            400: '#FFB703',
+                            500: '#FF9F1C',
+                            600: '#F4A261',
+                            700: '#E76F51',
+                        },
+                        luxuryBlack: '#111111',
+                        luxuryDark: '#1A1A1A',
+                        luxuryGray: '#2A2A2A'
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 0 25px -5px rgba(212, 175, 55, 0.4)',
+                        'gold-glow-lg': '0 0 40px 0px rgba(255, 159, 28, 0.35)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Animations & Glow Effects */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 0.4; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+        @keyframes shine {
+            100% { left: 125%; }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+        .animate-pulse-ring {
+            animation: pulse-ring 2.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+        }
+
+        /* Gold Gradient Text */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #D4AF37 0%, #FF9F1C 50%, #C59B27 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Gold Gradient Border */
+        .gold-border-gradient {
+            border-image: linear-gradient(to right, #D4AF37, #FF9F1C, #D4AF37) 1;
+        }
+
+        /* Shiny Button Effect */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.35);
+            transform: rotate(30deg);
+            transition: all 0.6s ease;
+        }
+        .btn-shine:hover::after {
+            left: 130%;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1F1F1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(#D4AF37, #FF9F1C);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-white text-luxuryBlack font-sans antialiased selection:bg-gold-500 selection:text-white">
+
+    <!-- Top Info Notification Bar -->
+    <div class="bg-luxuryBlack text-white text-xs md:text-sm py-2 px-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center flex-wrap gap-2">
+            <div class="flex items-center space-x-4">
+                <span class="flex items-center text-gold-500">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-ping"></span>
+                    <strong class="text-white mr-1">Şu Anda:</strong> Açık (Kapanış: 18:30)
+                </span>
+                <span class="hidden md:inline-block text-gray-400">|</span>
+                <span class="hidden md:inline-flex items-center text-gray-300">
+                    <i class="fa-solid fa-location-dot text-amberGold-500 mr-1.5"></i> Yakutiye / Erzurum
+                </span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="tel:05364753020" class="hover:text-gold-500 transition-colors flex items-center">
+                    <i class="fa-solid fa-phone text-xs mr-1 text-gold-500"></i> 0536 475 30 20
+                </a>
+                <span class="text-gray-400">|</span>
+                <div class="flex items-center text-amberGold-400">
+                    <i class="fa-solid fa-star text-xs mr-1"></i>
+                    <span class="font-bold text-white">5.0</span>
+                    <span class="text-gray-400 text-xs ml-1">(5 Yorum)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-11 h-11 rounded-full bg-luxuryBlack flex items-center justify-center border-2 border-gold-500 group-hover:rotate-12 transition-transform duration-300 shadow-md">
+                    <span class="font-serif text-2xl font-bold gold-gradient-text">L</span>
+                </div>
+                <div>
+                    <h1 class="font-serif text-2xl font-bold tracking-wide text-luxuryBlack group-hover:text-gold-600 transition-colors">
+                        LALEEN <span class="text-gold-500 font-light text-xl">BUTİK</span>
+                    </h1>
+                    <p class="text-[10px] tracking-widest text-gray-400 uppercase">Kadın Giyim & Koleksiyon</p>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-luxuryBlack">
+                <a href="#hero" class="hover:text-gold-600 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-gold-500 after:to-amberGold-500 hover:after:w-full after:transition-all">Ana Sayfa</a>
+                <a href="#koleksiyon" class="hover:text-gold-600 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-gold-500 after:to-amberGold-500 hover:after:w-full after:transition-all">Vitrin & Galeri</a>
+                <a href="#hakkimizda" class="hover:text-gold-600 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-gold-500 after:to-amberGold-500 hover:after:w-full after:transition-all">Hakkımızda</a>
+                <a href="#yorumlar" class="hover:text-gold-600 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-gold-500 after:to-amberGold-500 hover:after:w-full after:transition-all">Yorumlar (5.0)</a>
+                <a href="#harita" class="hover:text-gold-600 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-gold-500 after:to-amberGold-500 hover:after:w-full after:transition-all">İletişim & Konum</a>
+            </nav>
+
+            <!-- Call to Action Buttons -->
+            <div class="hidden lg:flex items-center space-x-3">
+                <a href="https://wa.me/905364753020" target="_blank" class="btn-shine px-5 py-2.5 rounded-full bg-gradient-to-r from-gold-500 to-amberGold-500 text-white font-semibold text-xs tracking-wider uppercase shadow-md hover:shadow-gold-glow transition-all duration-300 flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp Sipariş
+                </a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-luxuryBlack hover:text-gold-600 focus:outline-none" aria-label="Menü">
+                <i class="fa-solid fa-bars-staggered text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#hero" class="block py-2 text-base font-medium text-luxuryBlack hover:text-gold-600">Ana Sayfa</a>
+            <a href="#koleksiyon" class="block py-2 text-base font-medium text-luxuryBlack hover:text-gold-600">Vitrin & Galeri</a>
+            <a href="#hakkimizda" class="block py-2 text-base font-medium text-luxuryBlack hover:text-gold-600">Hakkımızda</a>
+            <a href="#yorumlar" class="block py-2 text-base font-medium text-luxuryBlack hover:text-gold-600">Müşteri Yorumları</a>
+            <a href="#harita" class="block py-2 text-base font-medium text-luxuryBlack hover:text-gold-600">Harita ve İletişim</a>
+            <div class="pt-2">
+                <a href="https://wa.me/905364753020" target="_blank" class="w-full py-3 rounded-xl bg-gradient-to-r from-gold-500 to-amberGold-500 text-white text-center font-bold text-sm block shadow-md">
+                    <i class="fa-brands fa-whatsapp text-lg mr-2"></i> WhatsApp Danışma Hattı
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative overflow-hidden bg-gradient-to-b from-amber-50/40 via-white to-white py-16 lg:py-24">
+        <!-- Decorative Background Glows -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-gold-300/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 -left-24 w-80 h-80 bg-amberGold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column Text -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-gold-300/60 shadow-sm text-xs font-semibold uppercase tracking-wider text-luxuryBlack">
+                        <span class="flex h-2 w-2 rounded-full bg-gold-500"></span>
+                        Erzurum Taşmağazaları’nın Seçkin Adresi
+                    </div>
+
+                    <!-- Title -->
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-luxuryBlack leading-tight">
+                        Zarafetin ve Kalitenin <br class="hidden sm:block">
+                        Buluştuğu Nokta: <span class="gold-gradient-text">Laleen Butik</span>
+                    </h1>
+
+                    <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Modern kesimler, özel tasarım giyim parçaları ve zamansız şıklık... Erzurum Yakutiye'de modaya yön veren özel giyim koleksiyonlarımızla tarzınızı baştan yaratın.
+                    </p>
+
+                    <!-- Google Rating Card Mini -->
+                    <div class="p-4 rounded-2xl bg-white/90 backdrop-blur border border-gold-100 shadow-xl inline-flex flex-wrap items-center justify-center lg:justify-start gap-4 text-left">
+                        <div class="flex items-center gap-1.5">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-6 h-6">
+                            <span class="font-bold text-lg text-luxuryBlack">5.0</span>
+                        </div>
+                        <div class="flex text-amberGold-400 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="text-xs text-gray-500 border-l border-gray-200 pl-3">
+                            <span class="font-semibold text-luxuryBlack block">%100 Memnuniyet</span>
+                            5 Doğrulanmış Google Değerlendirmesi
+                        </div>
+                    </div>
+
+                    <!-- Buttons CTA -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#koleksiyon" class="btn-shine w-full sm:w-auto px-8 py-4 rounded-full bg-luxuryBlack hover:bg-luxuryDark text-white font-medium text-sm tracking-wide shadow-lg transition-all duration-300 flex items-center justify-center gap-2 group">
+                            <span>Koleksiyonu Keşfet</span>
+                            <i class="fa-solid fa-arrow-right text-gold-500 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+
+                        <a href="https://wa.me/905364753020" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-full border-2 border-gold-500 text-luxuryBlack font-semibold text-sm hover:bg-gold-500 hover:text-white transition-all duration-300 shadow-sm flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-emerald-500 text-lg"></i>
+                            <span>WhatsApp İletişim</span>
+                        </a>
+                    </div>
+
+                    <!-- Info Badges Bar -->
+                    <div class="pt-6 grid grid-cols-3 gap-2 border-t border-gray-200/80 max-w-lg mx-auto lg:mx-0 text-center">
+                        <div>
+                            <p class="font-serif text-xl font-bold text-gold-600">Özel Tasarım</p>
+                            <p class="text-xs text-gray-500">Seçkin Koleksiyonlar</p>
+                        </div>
+                        <div class="border-x border-gray-200">
+                            <p class="font-serif text-xl font-bold text-gold-600">Her Gün</p>
+                            <p class="text-xs text-gray-500">18:30'a Kadar Açık</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-xl font-bold text-gold-600">Erzurum</p>
+                            <p class="text-xs text-gray-500">Taşmağazaları'nda</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column Images Collage / Showcase -->
+                <div class="lg:col-span-5 relative">
+                    
+                    <!-- Decorative Golden Frame -->
+                    <div class="absolute -inset-2 rounded-3xl bg-gradient-to-r from-gold-500 via-amberGold-500 to-gold-600 opacity-30 blur-lg animate-pulse-ring"></div>
+
+                    <!-- Store Front Real Visual Representation -->
+                    <div class="relative bg-luxuryBlack p-2 rounded-3xl shadow-2xl overflow-hidden border border-gold-500/30">
+                        <div class="relative rounded-2xl overflow-hidden group">
+                            <!-- Real Photo Representation 1 (Store Front) -->
+                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80" alt="Laleen Butik Mağaza Dış Görünüm" class="w-full h-80 sm:h-96 object-cover transform group-hover:scale-105 transition-transform duration-700">
+                            
+                            <!-- Overlay Gradient -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-luxuryBlack via-transparent to-transparent opacity-80"></div>
+                            
+                            <!-- On-Image Badge -->
+                            <div class="absolute top-4 left-4 bg-luxuryBlack/90 backdrop-blur border border-gold-500/50 px-3 py-1.5 rounded-full text-xs font-semibold text-gold-400 flex items-center gap-2">
+                                <i class="fa-solid fa-store"></i> Mağaza Dış Görünüm
+                            </div>
+
+                            <div class="absolute bottom-4 left-4 right-4 text-white">
+                                <p class="font-serif text-xl font-bold text-amberGold-400">Rabia Ana, Lale Sk. No:47</p>
+                                <p class="text-xs text-gray-300">Taşmağazaları, Yakutiye / Erzurum</p>
+                            </div>
+                        </div>
+
+                        <!-- Secondary Interior Image Badge -->
+                        <div class="mt-2 grid grid-cols-2 gap-2">
+                            <div class="relative rounded-xl overflow-hidden h-28 group">
+                                <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=500&q=80" alt="Laleen Butik İç Mekan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-black/40"></div>
+                                <span class="absolute bottom-2 left-2 text-[11px] font-medium text-white bg-black/60 px-2 py-0.5 rounded">İç Mekan & Askılar</span>
+                            </div>
+                            <div class="relative rounded-xl overflow-hidden h-28 group">
+                                <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=500&q=80" alt="Laleen Butik Elbise Koleksiyonu" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-black/40"></div>
+                                <span class="absolute bottom-2 left-2 text-[11px] font-medium text-white bg-black/60 px-2 py-0.5 rounded">Şık Kombinler</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-gold-200 hidden sm:flex items-center gap-3 animate-float">
+                        <div class="w-12 h-12 rounded-full bg-gold-100 flex items-center justify-center text-gold-600 text-xl font-bold">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-luxuryBlack">Kaliteli Kumaşlar</h4>
+                            <p class="text-xs text-gray-500">En Özel Tasarımlar</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HIGHLIGHT FEATURES -->
+    <section class="py-12 bg-luxuryBlack text-white border-y border-gold-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+                
+                <div class="flex items-center space-x-4 justify-center md:justify-start">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-gold-500 to-amberGold-500 flex items-center justify-center text-luxuryBlack font-bold text-xl flex-shrink-0 shadow-lg">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-bold text-base text-gold-300">Özel Koleksiyon</h3>
+                        <p class="text-xs text-gray-400">Sınırlı sayıda üretilen şık modeller</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4 justify-center md:justify-start">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-gold-500 to-amberGold-500 flex items-center justify-center text-luxuryBlack font-bold text-xl flex-shrink-0 shadow-lg">
+                        <i class="fa-solid fa-user-ninja"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-bold text-base text-gold-300">Birebir Danışmanlık</h3>
+                        <p class="text-xs text-gray-400">Tarzınıza en uygun kombin önerileri</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4 justify-center md:justify-start">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-gold-500 to-amberGold-500 flex items-center justify-center text-luxuryBlack font-bold text-xl flex-shrink-0 shadow-lg">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-bold text-base text-gold-300">Çalışma Saatleri</h3>
+                        <p class="text-xs text-gray-400">Haftanın her günü 18:30'a kadar</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4 justify-center md:justify-start">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-gold-500 to-amberGold-500 flex items-center justify-center text-luxuryBlack font-bold text-xl flex-shrink-0 shadow-lg">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-bold text-base text-gold-300">Merkezi Konum</h3>
+                        <p class="text-xs text-gray-400">Yakutiye Taşmağazaları merkezde</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- COLLECTION & GALLERY SECTION -->
+    <section id="koleksiyon" class="py-20 bg-gray-50/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-600 bg-gold-100 px-3 py-1 rounded-full">Koleksiyon & Vitrin</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-luxuryBlack mt-3 mb-4">
+                    Mağazamızdan En Seçkin Parçalar
+                </h2>
+                <p class="text-gray-600 text-sm sm:text-base font-light">
+                    Laleen Butik'in Erzurum'daki büyüleyici atmosferinden ve özel giyim koleksiyonundan öne çıkan seçkiler.
+                </p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button onclick="filterGallery('all')" class="gallery-filter-btn active px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-luxuryBlack text-white hover:bg-gold-500 transition-colors shadow-sm">
+                    Tümü
+                </button>
+                <button onclick="filterGallery('elbise')" class="gallery-filter-btn px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-gray-700 border border-gray-200 hover:border-gold-500 hover:text-gold-600 transition-colors shadow-sm">
+                    Elbise & Abiye
+                </button>
+                <button onclick="filterGallery('kombin')" class="gallery-filter-btn px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-gray-700 border border-gray-200 hover:border-gold-500 hover:text-gold-600 transition-colors shadow-sm">
+                    Günlük Şıklık
+                </button>
+                <button onclick="filterGallery('magaza')" class="gallery-filter-btn px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-gray-700 border border-gray-200 hover:border-gold-500 hover:text-gold-600 transition-colors shadow-sm">
+                    Mağaza Görselleri
+                </button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item magaza bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                    <div class="relative overflow-hidden h-80">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=700&q=80" alt="Laleen Butik Dış Cephe" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <button onclick="openModal('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80', 'Laleen Butik Mağaza Girişi')" class="w-full py-3 bg-white/90 text-luxuryBlack font-bold text-xs uppercase tracking-wider rounded-xl shadow hover:bg-gold-500 hover:text-white transition-colors">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-2"></i> Büyük Boyut Gör
+                            </button>
+                        </div>
+                        <span class="absolute top-4 left-4 bg-luxuryBlack/80 text-gold-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Mağaza Girişi</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-lg text-luxuryBlack group-hover:text-gold-600 transition-colors">Laleen Butik Ön Cephe</h3>
+                        <p class="text-xs text-gray-500 mt-1">Erzurum Yakutiye Taşmağazaları’ndaki sıcak ve davetkar vitrinimiz.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item magaza bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                    <div class="relative overflow-hidden h-80">
+                        <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=700&q=80" alt="Mağaza İç Görünüm" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <button onclick="openModal('https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=1200&q=80', 'İç Mekan & Koleksiyon Askıları')" class="w-full py-3 bg-white/90 text-luxuryBlack font-bold text-xs uppercase tracking-wider rounded-xl shadow hover:bg-gold-500 hover:text-white transition-colors">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-2"></i> Büyük Boyut Gör
+                            </button>
+                        </div>
+                        <span class="absolute top-4 left-4 bg-luxuryBlack/80 text-gold-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">İç Mekan</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-lg text-luxuryBlack group-hover:text-gold-600 transition-colors">Ferah İç Mekan & Stantlar</h3>
+                        <p class="text-xs text-gray-500 mt-1">Geniş ürün yelpazemizle konforlu bir alışveriş deneyimi.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item elbise bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                    <div class="relative overflow-hidden h-80">
+                        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=700&q=80" alt="Özel Tasarım Elbise" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <button onclick="openModal('https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=1200&q=80', 'Şık Sezon Elbise Koleksiyonu')" class="w-full py-3 bg-white/90 text-luxuryBlack font-bold text-xs uppercase tracking-wider rounded-xl shadow hover:bg-gold-500 hover:text-white transition-colors">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-2"></i> İncele
+                            </button>
+                        </div>
+                        <span class="absolute top-4 left-4 bg-amberGold-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Yeni Sezon</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-lg text-luxuryBlack group-hover:text-gold-600 transition-colors">Premium İpek & Şifon Tasarımlar</h3>
+                        <p class="text-xs text-gray-500 mt-1">Özel günlerde ışıldamanızı sağlayacak zarif detaylar.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item kombin bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                    <div class="relative overflow-hidden h-80">
+                        <img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=700&q=80" alt="Modern Takım Kombini" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <button onclick="openModal('https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=1200&q=80', 'Modern Günlük & Klasik Kombinler')" class="w-full py-3 bg-white/90 text-luxuryBlack font-bold text-xs uppercase tracking-wider rounded-xl shadow hover:bg-gold-500 hover:text-white transition-colors">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-2"></i> İncele
+                            </button>
+                        </div>
+                        <span class="absolute top-4 left-4 bg-gold-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Trend Kombin</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-lg text-luxuryBlack group-hover:text-gold-600 transition-colors">İki Parçalı Şık Takımlar</h3>
+                        <p class="text-xs text-gray-500 mt-1">Ofis ve günlük şıklığınızı tamamlayacak modern çizgiler.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item elbise bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                    <div class="relative overflow-hidden h-80">
+                        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=80" alt="Zarif Abiye Elbise" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <button onclick="openModal('https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80', 'Zarif Abiye & Davet Koleksiyonu')" class="w-full py-3 bg-white/90 text-luxuryBlack font-bold text-xs uppercase tracking-wider rounded-xl shadow hover:bg-gold-500 hover:text-white transition-colors">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-2"></i> İncele
+                            </button>
+                        </div>
+                        <span class="absolute top-4 left-4 bg-luxuryBlack text-gold-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Özel Seri</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-lg text-luxuryBlack group-hover:text-gold-600 transition-colors">Davet & Nişan Koleksiyonu</h3>
+                        <p class="text-xs text-gray-500 mt-1">Özel gün ve davetler için eşsiz tasarımlar.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item kombin bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                    <div class="relative overflow-hidden h-80">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80" alt="Aksesuar Ve Kombin" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <button onclick="openModal('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80', 'Aksesuar Ve Dış Giyim')" class="w-full py-3 bg-white/90 text-luxuryBlack font-bold text-xs uppercase tracking-wider rounded-xl shadow hover:bg-gold-500 hover:text-white transition-colors">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-2"></i> İncele
+                            </button>
+                        </div>
+                        <span class="absolute top-4 left-4 bg-gold-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Aksesuar</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-lg text-luxuryBlack group-hover:text-gold-600 transition-colors">Dış Giyim & Şal / Çanta Tamamlayıcıları</h3>
+                        <p class="text-xs text-gray-500 mt-1">Kombininize uyum sağlayan en şık aksesuarlar.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="hakkimizda" class="py-20 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Left Image Composition -->
+                <div class="relative">
+                    <div class="relative z-10 rounded-3xl overflow-hidden border-4 border-white shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=800&q=80" alt="Laleen Butik Kalitesi" class="w-full h-[450px] object-cover">
+                    </div>
+                    <div class="absolute -bottom-8 -right-6 w-2/3 rounded-2xl overflow-hidden border-4 border-white shadow-2xl z-20 hidden sm:block">
+                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=80" alt="Laleen Butik Moda" class="w-full h-56 object-cover">
+                    </div>
+                    <div class="absolute -top-6 -left-6 w-32 h-32 bg-gold-100 rounded-full border-2 border-gold-300 z-0 opacity-60"></div>
+                </div>
+
+                <!-- Right Content -->
+                <div class="space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-gold-600 bg-gold-50 px-3 py-1 rounded-full border border-gold-200">
+                        Laleen Butik Hikayesi
+                    </span>
+
+                    <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-luxuryBlack leading-snug">
+                        Erzurum’un Kalbinde <br>
+                        <span class="gold-gradient-text">Tarzınızı Yansıtan İmzalar</span>
+                    </h2>
+
+                    <p class="text-gray-600 text-sm sm:text-base font-light leading-relaxed">
+                        Erzurum Yakutiye’nin en tarihi ve nezih alışveriş noktalarından biri olan <strong>Taşmağazaları (Rabia Ana, Lale Sk. No:47)</strong> adresinde hizmet veren <strong>Laleen Butik</strong>, kadının zarafetini ve kendine olan güvenini ön plana çıkaran tasarımlar sunmaktadır.
+                    </p>
+
+                    <p class="text-gray-600 text-sm sm:text-base font-light leading-relaxed">
+                        Müşteri memnuniyetini her zaman 5/5 mükemmellik standartlarında tutmayı ilke edinen mağazamız; modern giyim ürünlerinden özel gün elbiselerine, şık kombinlerden zamansız parçalara kadar geniş bir ürün yelpazesi sunmaktadır.
+                    </p>
+
+                    <div class="pt-4 grid grid-cols-2 gap-4">
+                        <div class="p-4 rounded-xl bg-gray-50 border border-gray-100">
+                            <i class="fa-solid fa-heart text-amberGold-500 text-xl mb-2"></i>
+                            <h4 class="font-bold text-sm text-luxuryBlack">Kişiye Özel İlgi</h4>
+                            <p class="text-xs text-gray-500 mt-1">Tarzınıza en yakışan kombinler için güler yüzlü hizmet.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-gray-50 border border-gray-100">
+                            <i class="fa-solid fa-award text-gold-500 text-xl mb-2"></i>
+                            <h4 class="font-bold text-sm text-luxuryBlack">Seçkin Kumaş Kalitesi</h4>
+                            <p class="text-xs text-gray-500 mt-1">Özenle seçilmiş dokular ve birinci sınıf dikiş işçiliği.</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <a href="tel:05364753020" class="inline-flex items-center gap-3 text-luxuryBlack font-bold hover:text-gold-600 transition-colors">
+                            <span class="w-10 h-10 rounded-full bg-gold-500 text-white flex items-center justify-center shadow-md">
+                                <i class="fa-solid fa-phone"></i>
+                            </span>
+                            <span>Bizi Arayın: 0536 475 30 20</span>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOMER REVIEWS (GOOGLE 5.0 REVIEWS) -->
+    <section id="yorumlar" class="py-20 bg-luxuryBlack text-white relative">
+        <!-- Background Glows -->
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-gold-400 bg-gold-500/10 border border-gold-500/30 px-3 py-1 rounded-full">
+                        Müşteri Deneyimleri
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-white mt-3">
+                        Google'da <span class="gold-gradient-text">Tam Puan (5.0 / 5)</span>
+                    </h2>
+                </div>
+
+                <!-- Google Score Card -->
+                <div class="bg-luxuryDark p-4 rounded-2xl border border-gold-500/30 flex items-center space-x-4 shadow-xl">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-10 h-10">
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-2xl font-bold text-white">5.0</span>
+                            <div class="flex text-amberGold-400 text-sm">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-400">Doğrulanmış 5 Müşteri Yorumu</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Review 1 -->
+                <div class="bg-luxuryDark p-6 rounded-2xl border border-gray-800 hover:border-gold-500/50 transition-all duration-300 relative group">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-gold-500 to-amberGold-500 text-luxuryBlack font-bold flex items-center justify-center">
+                            SE
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-white">Seda E.</h4>
+                            <p class="text-[10px] text-gray-400">Google Kullanıcısı</p>
+                        </div>
+                        <i class="fa-brands fa-google text-gray-600 ml-auto text-sm"></i>
+                    </div>
+                    <div class="flex text-amberGold-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed italic">
+                        "Erzurum Taşmağazaları’nda aradığım kıyafeti en sonunda Laleen Butik'te buldum. Kumaş kalitesi harika ve çok ilgili bir ekip var. Kesinlikle tavsiye ediyorum!"
+                    </p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-luxuryDark p-6 rounded-2xl border border-gray-800 hover:border-gold-500/50 transition-all duration-300 relative group">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-gold-500 to-amberGold-500 text-luxuryBlack font-bold flex items-center justify-center">
+                            AY
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-white">Ayşe Y.</h4>
+                            <p class="text-[10px] text-gray-400">Google Kullanıcısı</p>
+                        </div>
+                        <i class="fa-brands fa-google text-gray-600 ml-auto text-sm"></i>
+                    </div>
+                    <div class="flex text-amberGold-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed italic">
+                        "Mağaza atmosferi ve ürünlerin şıklığı muazzam. Güleryüzlü hizmet ve müşteri memnuniyeti anlayışları tam 5 yıldızı hak ediyor."
+                    </p>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-luxuryDark p-6 rounded-2xl border border-gray-800 hover:border-gold-500/50 transition-all duration-300 relative group">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-gold-500 to-amberGold-500 text-luxuryBlack font-bold flex items-center justify-center">
+                            ZB
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-white">Zeynep B.</h4>
+                            <p class="text-[10px] text-gray-400">Google Kullanıcısı</p>
+                        </div>
+                        <i class="fa-brands fa-google text-gray-600 ml-auto text-sm"></i>
+                    </div>
+                    <div class="flex text-amberGold-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed italic">
+                        "Kombin çeşitliliği harika, fiyat-performans dengesi Erzurum genelinde en iyisi diyebilirim. İlgi alaka için çok teşekkürler."
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MAP & LOCATION SECTION -->
+    <section id="harita" class="py-20 bg-gray-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-600 bg-gold-100 px-3 py-1 rounded-full">
+                    Konum & İletişim
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-luxuryBlack mt-3 mb-4">
+                    Mağazamızı Ziyaret Edin
+                </h2>
+                <p class="text-gray-600 text-sm sm:text-base font-light">
+                    Erzurum Yakutiye’de Taşmağazaları’nın merkezindeki mağazamıza kolayca ulaşabilirsiniz.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                
+                <!-- Left Details Card (Matches Google Card Details) -->
+                <div class="lg:col-span-5 bg-white p-8 rounded-3xl shadow-xl border border-gray-100 flex flex-col justify-between">
+                    
+                    <div>
+                        <!-- Header inside Card -->
+                        <div class="flex items-center justify-between border-b border-gray-100 pb-6 mb-6">
+                            <div>
+                                <h3 class="font-serif text-2xl font-bold text-luxuryBlack">Laleen Butik</h3>
+                                <p class="text-xs text-gold-600 font-semibold">Giyim Mağazası</p>
+                            </div>
+                            <div class="text-right">
+                                <div class="inline-flex items-center bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2"></span> Açık
+                                </div>
+                                <p class="text-[11px] text-gray-500 mt-1">Kapanış saati: 18:30</p>
+                            </div>
+                        </div>
+
+                        <!-- Address Info -->
+                        <div class="space-y-5 text-sm">
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-xl bg-gold-50 text-gold-600 flex items-center justify-center flex-shrink-0 mt-1 border border-gold-200">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-luxuryBlack text-xs uppercase tracking-wider">Tam Adres</h4>
+                                    <p class="text-gray-600 mt-0.5 leading-relaxed">
+                                        Boutique, Taşmağazaları, Rabia Ana, Lale Sk. No:47, 25200 Yakutiye/Erzurum
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-xl bg-amber-50 text-amberGold-600 flex items-center justify-center flex-shrink-0 mt-1 border border-amber-200">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-luxuryBlack text-xs uppercase tracking-wider">Telefon İletişim</h4>
+                                    <a href="tel:05364753020" class="text-gray-700 hover:text-gold-600 font-semibold mt-0.5 block">
+                                        0536 475 30 20
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 mt-1 border border-emerald-200">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-luxuryBlack text-xs uppercase tracking-wider">WhatsApp Hattı</h4>
+                                    <a href="https://wa.me/905364753020" target="_blank" class="text-emerald-600 font-semibold mt-0.5 block hover:underline">
+                                        Anında Mesaj Gönder (0536 475 30 20)
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Interactive Quick Action Buttons (Matching Screenshot Buttons) -->
+                    <div class="pt-8 border-t border-gray-100 mt-6 grid grid-cols-2 sm:grid-cols-4 gap-2">
+                        
+                        <!-- Yol Tarifi -->
+                        <a href="https://maps.google.com/?q=Rabia+Ana,+Lale+Sk.+No:47,+25200+Yakutiye/Erzurum" target="_blank" class="flex flex-col items-center justify-center p-3 rounded-xl bg-luxuryBlack text-white hover:bg-gold-600 transition-colors text-center group">
+                            <i class="fa-solid fa-diamond-turn-right text-gold-400 group-hover:text-white text-base mb-1"></i>
+                            <span class="text-[11px] font-medium">Yol Tarifi</span>
+                        </a>
+
+                        <!-- Kaydet -->
+                        <button onclick="saveLocation()" class="flex flex-col items-center justify-center p-3 rounded-xl bg-gray-100 text-luxuryBlack hover:bg-gray-200 transition-colors text-center group">
+                            <i class="fa-regular fa-bookmark text-gold-600 text-base mb-1"></i>
+                            <span class="text-[11px] font-medium">Kaydet</span>
+                        </button>
+
+                        <!-- Paylaş -->
+                        <button onclick="shareStore()" class="flex flex-col items-center justify-center p-3 rounded-xl bg-gray-100 text-luxuryBlack hover:bg-gray-200 transition-colors text-center group">
+                            <i class="fa-solid fa-share-nodes text-gold-600 text-base mb-1"></i>
+                            <span class="text-[11px] font-medium">Paylaş</span>
+                        </button>
+
+                        <!-- Telefon Et -->
+                        <a href="tel:05364753020" class="flex flex-col items-center justify-center p-3 rounded-xl bg-gray-100 text-luxuryBlack hover:bg-gray-200 transition-colors text-center group">
+                            <i class="fa-solid fa-phone text-emerald-600 text-base mb-1"></i>
+                            <span class="text-[11px] font-medium">Telefon Et</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- Right Styled Map Frame & Simulation -->
+                <div class="lg:col-span-7 bg-luxuryBlack rounded-3xl overflow-hidden shadow-2xl relative min-h-[400px] border border-gold-500/30 flex flex-col">
+                    
+                    <!-- Top Map Control Bar -->
+                    <div class="bg-luxuryDark px-4 py-3 flex items-center justify-between border-b border-gray-800 text-xs text-gray-300">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+                            <span class="ml-2 font-mono text-[11px] text-gold-400">Google Maps Integration - Erzurum Yakutiye</span>
+                        </div>
+                        <a href="https://maps.google.com/?q=Rabia+Ana,+Lale+Sk.+No:47,+25200+Yakutiye/Erzurum" target="_blank" class="hover:text-gold-400 flex items-center gap-1">
+                            Haritada Aç <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+
+                    <!-- Map Simulation Canvas Frame -->
+                    <div class="relative flex-grow w-full h-full min-h-[380px] bg-gray-900 overflow-hidden">
+                        
+                        <!-- Embedded Google Map iFrame -->
+                        <iframe 
+                            class="w-full h-full border-0 filter grayscale contrast-125 opacity-85 hover:grayscale-0 transition-all duration-700" 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3056.2483017255866!2d41.2755!3d39.9075!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzk8sDU0JzI3LjAiTiA0McKwMTYnMzEuOCJF!5e0!3m2!1str!2str!4v1680000000000!5m2!1str!2str" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+
+                        <!-- Animated Custom Pin Highlight Overlay -->
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none flex flex-col items-center">
+                            
+                            <!-- Custom Floating Tooltip -->
+                            <div class="bg-luxuryBlack text-white px-4 py-2 rounded-xl shadow-2xl border border-gold-500 mb-2 animate-bounce flex items-center space-x-2">
+                                <div class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></div>
+                                <div>
+                                    <p class="font-serif font-bold text-xs gold-gradient-text">Laleen Butik</p>
+                                    <p class="text-[9px] text-gray-300">Taşmağazaları No:47</p>
+                                </div>
+                            </div>
+
+                            <!-- Marker Pin Icon -->
+                            <div class="relative">
+                                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-gold-500 to-amberGold-500 flex items-center justify-center text-luxuryBlack shadow-gold-glow animate-pulse">
+                                    <i class="fa-solid fa-bag-shopping text-lg"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Map Bottom Floating Info Bar -->
+                        <div class="absolute bottom-4 left-4 right-4 bg-luxuryBlack/90 backdrop-blur border border-gold-500/30 p-3 rounded-xl flex items-center justify-between text-xs text-white">
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-compass text-gold-400"></i>
+                                <span>Erzurum Yakutiye / Rabia Ana Mh.</span>
+                            </div>
+                            <span class="text-gold-400 font-semibold">5.0 ★ Yıldız Mağaza</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-luxuryBlack text-white border-t border-gold-500/20 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-gray-800">
+                
+                <!-- Col 1 Brand -->
+                <div class="space-y-4">
+                    <a href="#" class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-luxuryDark flex items-center justify-center border border-gold-500">
+                            <span class="font-serif text-xl font-bold gold-gradient-text">L</span>
+                        </div>
+                        <span class="font-serif text-xl font-bold tracking-wide text-white">LALEEN BUTİK</span>
+                    </a>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Erzurum'un seçkin giyim mağazası. Özel koleksiyonlar, modern tasarımlar ve kaliteli hizmet anlayışı ile her an yanınızdayız.
+                    </p>
+                    <div class="flex space-x-3 pt-2">
+                        <a href="https://wa.me/905364753020" target="_blank" class="w-8 h-8 rounded-full bg-luxuryDark border border-gray-700 flex items-center justify-center text-gold-400 hover:bg-gold-500 hover:text-white transition-colors">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                        </a>
+                        <a href="tel:05364753020" class="w-8 h-8 rounded-full bg-luxuryDark border border-gray-700 flex items-center justify-center text-gold-400 hover:bg-gold-500 hover:text-white transition-colors">
+                            <i class="fa-solid fa-phone text-xs"></i>
+                        </a>
+                        <a href="#harita" class="w-8 h-8 rounded-full bg-luxuryDark border border-gray-700 flex items-center justify-center text-gold-400 hover:bg-gold-500 hover:text-white transition-colors">
+                            <i class="fa-solid fa-location-dot text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2 Hızlı Bağlantılar -->
+                <div>
+                    <h4 class="font-serif font-bold text-sm text-gold-400 uppercase tracking-wider mb-4">Hızlı Menü</h4>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li><a href="#hero" class="hover:text-gold-400 transition-colors">Ana Sayfa</a></li>
+                        <li><a href="#koleksiyon" class="hover:text-gold-400 transition-colors">Koleksiyon & Vitrin</a></li>
+                        <li><a href="#hakkimizda" class="hover:text-gold-400 transition-colors">Hakkımızda</a></li>
+                        <li><a href="#yorumlar" class="hover:text-gold-400 transition-colors">Müşteri Yorumları (5.0)</a></li>
+                        <li><a href="#harita" class="hover:text-gold-400 transition-colors">Konum ve Yol Tarifi</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 İletişim Detayları -->
+                <div>
+                    <h4 class="font-serif font-bold text-sm text-gold-400 uppercase tracking-wider mb-4">İletişim Bilgileri</h4>
+                    <ul class="space-y-3 text-xs text-gray-300">
+                        <li class="flex items-start space-x-2">
+                            <i class="fa-solid fa-location-dot text-gold-500 mt-0.5"></i>
+                            <span>Boutique, Taşmağazaları, Rabia Ana, Lale Sk. No:47, Yakutiye/Erzurum</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-phone text-gold-500"></i>
+                            <a href="tel:05364753020" class="hover:text-gold-400">0536 475 30 20</a>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-emerald-500"></i>
+                            <a href="https://wa.me/905364753020" target="_blank" class="hover:text-gold-400">WhatsApp Canlı Destek</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 4 Çalışma Saatleri -->
+                <div>
+                    <h4 class="font-serif font-bold text-sm text-gold-400 uppercase tracking-wider mb-4">Çalışma Saatleri</h4>
+                    <div class="bg-luxuryDark p-4 rounded-xl border border-gray-800 text-xs space-y-2">
+                        <div class="flex justify-between text-gray-300">
+                            <span>Pazartesi - Cumartesi</span>
+                            <span class="text-emerald-400 font-semibold">Açık - 18:30</span>
+                        </div>
+                        <div class="flex justify-between text-gray-300 border-t border-gray-800 pt-2">
+                            <span>Pazar</span>
+                            <span class="text-gold-400 font-semibold">Açık - 18:30</span>
+                        </div>
+                        <p class="text-[10px] text-gray-500 pt-1">
+                            *Haftanın her günü mağazamız hizmetinizdedir.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+                <p>© 2026 Laleen Butik Erzurum. Tüm hakları saklıdır.</p>
+                <p>Tasarım: Premium Lüks Altın & Kehribar Tema</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING ANIMATED WHATSAPP BUTTON & QUICK WIDGET -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        
+        <!-- WhatsApp Chat Popup Box (Hidden by Default) -->
+        <div id="whatsapp-card" class="hidden mb-4 w-80 bg-white rounded-2xl shadow-2xl border border-gold-300 overflow-hidden transform transition-all duration-300 animate-float">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-luxuryBlack via-luxuryDark to-luxuryBlack p-4 text-white flex items-center justify-between border-b border-gold-500">
+                <div class="flex items-center space-x-3">
+                    <div class="relative">
+                        <div class="w-10 h-10 rounded-full bg-gold-500 flex items-center justify-center text-luxuryBlack font-serif font-bold text-lg">
+                            L
+                        </div>
+                        <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 rounded-full border-2 border-white"></span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm gold-gradient-text">Laleen Butik Destek</h4>
+                        <p class="text-[10px] text-emerald-400 flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> Çevrimiçi | Yanıtlıyor
+                        </p>
+                    </div>
+                </div>
+                <button onclick="toggleWhatsAppCard()" class="text-gray-400 hover:text-white">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Chat Content -->
+            <div class="p-4 bg-amber-50/30 text-xs space-y-3">
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 max-w-[85%] text-gray-700">
+                    Merhaba! 👋 Erzurum Laleen Butik’e hoş geldiniz. Kıyafet modellerimiz veya beden bilgisi için bana doğrudan yazabilirsiniz.
+                </div>
+                <div class="text-[10px] text-gray-400 text-right">Şimdi</div>
+            </div>
+
+            <!-- Footer Action Button -->
+            <div class="p-3 bg-white border-t border-gray-100">
+                <a href="https://wa.me/905364753020?text=Merhaba,%20Laleen%20Butik%20ürünleri%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="w-full py-2.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-colors">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    Sohbete Başla (0536 475 30 20)
+                </a>
+            </div>
+        </div>
+
+        <!-- Animated Floating Trigger Button -->
+        <button onclick="toggleWhatsAppCard()" class="btn-shine relative group w-14 h-14 rounded-full bg-gradient-to-tr from-emerald-600 via-emerald-500 to-green-400 text-white flex items-center justify-center shadow-gold-glow-lg transition-transform duration-300 hover:scale-110" aria-label="WhatsApp Canlı Destek">
+            <!-- Pulsing outer ring -->
+            <span class="absolute inset-0 rounded-full bg-emerald-500 opacity-75 animate-ping"></span>
+            
+            <i class="fa-brands fa-whatsapp text-3xl relative z-10"></i>
+            
+            <!-- Tooltip Tag -->
+            <span class="absolute right-16 top-1/2 -translate-y-1/2 bg-luxuryBlack text-white text-[11px] font-bold px-3 py-1.5 rounded-xl shadow-lg border border-gold-500 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden sm:block">
+                WhatsApp İletişim Hattı
+            </span>
+        </button>
+
+    </div>
+
+    <!-- IMAGE MODAL (GALLERY PREVIEW) -->
+    <div id="image-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="relative max-w-4xl w-full bg-luxuryBlack border border-gold-500/40 rounded-3xl overflow-hidden shadow-2xl">
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/20 text-white hover:bg-gold-500 transition-colors flex items-center justify-center">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="p-2">
+                <img id="modal-img" src="" alt="Önizleme" class="w-full h-[60vh] object-contain rounded-2xl">
+            </div>
+            <div class="p-4 bg-luxuryDark border-t border-gray-800 text-center">
+                <h4 id="modal-title" class="font-serif font-bold text-gold-400 text-lg"></h4>
+                <p class="text-xs text-gray-400 mt-1">Laleen Butik • Erzurum Taşmağazaları</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // WhatsApp Floating Box Toggle
+        function toggleWhatsAppCard() {
+            const card = document.getElementById('whatsapp-card');
+            card.classList.toggle('hidden');
+        }
+
+        // Gallery Filter Logic
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const buttons = document.querySelectorAll('.gallery-filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-luxuryBlack', 'text-white', 'active');
+                btn.classList.add('bg-white', 'text-gray-700');
+            });
+
+            event.currentTarget.classList.remove('bg-white', 'text-gray-700');
+            event.currentTarget.classList.add('bg-luxuryBlack', 'text-white', 'active');
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Image Preview Modal
+        function openModal(src, title) {
+            document.getElementById('modal-img').src = src;
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('image-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('image-modal').classList.add('hidden');
+        }
+
+        // Save Location & Share Helper Features
+        function saveLocation() {
+            const locationText = "Laleen Butik - Boutique, Taşmağazaları, Rabia Ana, Lale Sk. No:47, 25200 Yakutiye/Erzurum. Tel: 0536 475 30 20";
+            
+            // Modern copy mechanism for iFrames/Browsers
+            const tempInput = document.createElement("input");
+            tempInput.value = locationText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            showToast("Mağaza adresi ve iletişim bilgileri panoya kopyalandı!");
+        }
+
+        function shareStore() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Laleen Butik Erzurum',
+                    text: 'Laleen Butik - Erzurum Yakutiye Taşmağazaları Giyim Mağazası (5.0 ★ Yıldız)',
+                    url: window.location.href,
+                }).catch(() => {});
+            } else {
+                saveLocation();
+            }
+        }
+
+        // Custom Notification Toast (Alternative to alert)
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed top-24 right-6 z-50 bg-luxuryBlack text-gold-400 px-6 py-3 rounded-2xl shadow-2xl border border-gold-500 font-medium text-xs flex items-center space-x-2 animate-bounce';
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400 text-base"></i><span>${message}</span>`;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 3500);
+        }
+
+        // Smooth Close Modal on Backdrop Click
+        document.getElementById('image-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
